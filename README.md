@@ -242,7 +242,7 @@ To open an **interactive** command line, you can use one of the following option
     ```
    If it is still not working, try redoing step 3 with the following path instead. Then rerun the createdb command.
    ```
-   pg_ctl -o "-c unix_socket_directories=/tmp/$LOGNAME/sockets" -D /extra/jscho004/cs166/mydb/data -l logfile start
+   pg_ctl -o "-c unix_socket_directories=/tmp/$LOGNAME/sockets" -D /extra/$LOGNAME/cs166/mydb/data -l logfile start
    ```
 
 5. Start the interactive environment (Replace `$DB_NAME` with your database name)
@@ -273,7 +273,7 @@ To open an **interactive** command line, you can use one of the following option
     ```
     If you run into this error,
     ```
-    pg_ctl: PID file "/tmp/jscho004/test/data/postmaster.pid" does not exist
+    pg_ctl: PID file "/tmp/$LOGNAME/test/data/postmaster.pid" does not exist
     Is server running?
     ```
     try running the command with the following path instead:
