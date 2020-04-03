@@ -273,7 +273,8 @@ To open an **interactive** command line, you can use one of the following option
     ```
     If you run into this error,
     ```
-    pg_ctl: PID file "/tmp/jscho004/test/data/postmaster.pid" does not exist                                                                 Is server running?
+    pg_ctl: PID file "/tmp/jscho004/test/data/postmaster.pid" does not exist
+    Is server running?
     ```
     try running the command with the following path instead:
     ```
