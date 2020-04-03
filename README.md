@@ -229,6 +229,10 @@ To open an **interactive** command line, you can use one of the following option
     ```bash
     pg_ctl -o "-c unix_socket_directories=/tmp/$LOGNAME/sockets" -D $PGDATA -l /tmp/$LOGNAME/logfile start
     ```
+    If that doesn't work, try:
+    ```
+    pg_ctl -o "-c unix_socket_directories=/tmp/$LOGNAME/sockets" -D /extra/$LOGNAME/cs166/mydb/data -l logfile start
+    ```
 
 4. Create your database (Replace `$DB_NAME` with your database name)
     ```bash
