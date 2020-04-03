@@ -1,4 +1,5 @@
 # CS 166 Server Access and Database Setup Guide
+### Courtesy of Qizhong Mao
 
 ## Table of Contents  
 - [Accessing a Lab Machine via SSH](#accessing-a-lab-machine-via-ssh)  
