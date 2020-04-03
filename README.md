@@ -234,21 +234,16 @@ To open an **interactive** command line, you can use one of the following option
     ```bash
     createdb -h /tmp/$LOGNAME/sockets $DB_NAME
     ```
-    If you run into the following error, first check to make sure you completed steps 1-3 correctly. If it is still not working, it is likely due an issue with Postgres connecting to the port properly.
+    If you run into the following error, first check to make sure you completed steps 1-3 correctly.
     ```
     createdb: could not connect to database template1: could not connect to server: No such file or directory
         Is the server running locally and accepting
         connections on Unix domain socket "/tmp/$LOGNAME/sockets/.s.PGSQL.5432"
     ```
-    Check what the PGPORT variable is set to.
-    ```
-    echo $PGPORT
-    ```
-    Update this to a value between 40000 and 50000. For example:
-    ```
-    export PGPORT=49434
-    ```
-    Exit the lab machine and log back in. You should be able to restart from step 3 and try again. You may need to try a few different ports.
+   If it is still not working, try redoing step 3 with the following path instead. Then rerun the createdb command.
+   ```
+   pg_ctl -o "-c unix_socket_directories=/tmp/$LOGNAME/sockets" -D /extra/jscho004/cs166/mydb/data -l logfile start
+   ```
 
 5. Start the interactive environment (Replace `$DB_NAME` with your database name)
     ```bash
@@ -275,4 +270,12 @@ To open an **interactive** command line, you can use one of the following option
 7. Stop the database instance
     ```bash
     pg_ctl -o "-c unix_socket_directories=/tmp/$LOGNAME/sockets" -D /tmp/$LOGNAME/test/data stop
+    ```
+    If you run into this error,
+    ```
+    pg_ctl: PID file "/tmp/jscho004/test/data/postmaster.pid" does not exist                                                                 Is server running?
+    ```
+    try running the command with the following path instead:
+    ```
+    pg_ctl -o "-c unix_socket_directories=/tmp/$LOGNAME/sockets" -D /extra/$LOGNAME/cs166/mydb/data stop
     ```
